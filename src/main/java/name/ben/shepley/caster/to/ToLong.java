@@ -1,10 +1,10 @@
 package name.ben.shepley.caster.to;
 
-import name.ben.shepley.caster.Caster;
+import name.ben.shepley.caster.configuration.CasterConfiguration;
 
 public class ToLong {
-    private final Caster.CasterConfiguration casterConfiguration;
-    public ToLong(Caster.CasterConfiguration casterConfiguration) {
+    private final CasterConfiguration casterConfiguration;
+    public ToLong(CasterConfiguration casterConfiguration) {
         this.casterConfiguration = casterConfiguration;
     }
 }

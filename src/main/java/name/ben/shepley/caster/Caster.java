@@ -1,5 +1,8 @@
 package name.ben.shepley.caster;
 
+import name.ben.shepley.caster.configuration.CasterConfiguration;
+import name.ben.shepley.caster.configuration.ExceptionModeEnum;
+import name.ben.shepley.caster.configuration.RoundingModeEnum;
 import name.ben.shepley.caster.to.*;
 
 import java.text.DecimalFormat;
@@ -44,36 +47,9 @@ public final class Caster {
     public ToDouble toDouble(){return new ToDouble(this.casterConfiguration);}
     public ToFloat toFloat(){return new ToFloat(this.casterConfiguration);}
 
-    public final static class CasterConfiguration {
-        public enum RoundingModeEnum {
-            ROUND_UP,
-            ROUND_DOWN,
-            ONLY_EQUAL;
-        }
-
-        public enum ExceptionModeEnum {
-            THROW,
-            DONT_THROW;
-        }
-
-        public final RoundingModeEnum roundingModeEnum;
-        public final ExceptionModeEnum exceptionModeEnum;
-        public final DateTimeFormatter dateTimeFormatter;
-        public final SimpleDateFormat simpleDateFormat;
-        public final DecimalFormat decimalFormat;
-
-        private CasterConfiguration(CasterBuilder casterBuilder) {
-            this.roundingModeEnum = casterBuilder.roundingModeEnum;
-            this.exceptionModeEnum = casterBuilder.exceptionModeEnum;
-            this.dateTimeFormatter = casterBuilder.dateTimeFormatter;
-            this.simpleDateFormat = casterBuilder.simpleDateFormat;
-            this.decimalFormat = casterBuilder.decimalFormat;
-        }
-    }
-
     public final static class CasterBuilder {
-        private CasterConfiguration.RoundingModeEnum roundingModeEnum = CasterConfiguration.RoundingModeEnum.ROUND_UP;
-        private CasterConfiguration.ExceptionModeEnum exceptionModeEnum = CasterConfiguration.ExceptionModeEnum.DONT_THROW;
+        private RoundingModeEnum roundingModeEnum = RoundingModeEnum.ROUND_UP;
+        private ExceptionModeEnum exceptionModeEnum = ExceptionModeEnum.DONT_THROW;
         private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG);
         private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");;
         private DecimalFormat decimalFormat = new DecimalFormat("#,###,##0.000");;
@@ -82,26 +58,41 @@ public final class Caster {
             return new Caster(new CasterConfiguration(this));
         }
 
-        public CasterBuilder setRoundingModeEnum(CasterConfiguration.RoundingModeEnum roundingModeEnum) {
+        public RoundingModeEnum getRoundingModeEnum() {
+            return roundingModeEnum;
+        }
+        public CasterBuilder setRoundingModeEnum(RoundingModeEnum roundingModeEnum) {
             this.roundingModeEnum = roundingModeEnum;
             return this;
         }
 
-        public CasterBuilder setExceptionModeEnum(CasterConfiguration.ExceptionModeEnum exceptionModeEnum) {
+        public ExceptionModeEnum getExceptionModeEnum() {
+            return exceptionModeEnum;
+        }
+        public CasterBuilder setExceptionModeEnum(ExceptionModeEnum exceptionModeEnum) {
             this.exceptionModeEnum = exceptionModeEnum;
             return this;
         }
 
+        public DateTimeFormatter getDateTimeFormatter() {
+            return dateTimeFormatter;
+        }
         public CasterBuilder setDateTimeFormatter(DateTimeFormatter dateTimeFormatter) {
             this.dateTimeFormatter = dateTimeFormatter;
             return this;
         }
 
+        public SimpleDateFormat getSimpleDateFormat() {
+            return simpleDateFormat;
+        }
         public CasterBuilder setSimpleDateFormat(SimpleDateFormat simpleDateFormat) {
             this.simpleDateFormat = simpleDateFormat;
             return this;
         }
 
+        public DecimalFormat getDecimalFormat() {
+            return decimalFormat;
+        }
         public CasterBuilder setDecimalFormat(DecimalFormat decimalFormat) {
             this.decimalFormat = decimalFormat;
             return this;
