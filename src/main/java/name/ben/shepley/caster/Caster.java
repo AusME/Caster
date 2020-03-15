@@ -17,6 +17,10 @@ public final class Caster {
         this.casterConfiguration = casterConfiguration;
     }
 
+    public static Caster getInstance() {
+        return new CasterBuilder().build();
+    }
+
     /* String */
     public ToString toStr() {return new ToString(this.casterConfiguration);}
 
@@ -48,7 +52,7 @@ public final class Caster {
     public ToFloat toFloat(){return new ToFloat(this.casterConfiguration);}
 
     public final static class CasterBuilder {
-        private RoundingModeEnum roundingModeEnum = RoundingModeEnum.ROUND_UP;
+        private RoundingModeEnum roundingModeEnum = RoundingModeEnum.ROUND_DOWN;
         private ExceptionModeEnum exceptionModeEnum = ExceptionModeEnum.DONT_THROW;
         private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG);
         private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");;
