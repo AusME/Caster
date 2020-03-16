@@ -18,7 +18,11 @@ public final class Caster {
     }
 
     public static Caster getInstance() {
-        return new CasterBuilder().build();
+        return new Caster(new CasterConfiguration.CasterConfigurationBuilder().build());
+    }
+
+    public static Caster getInstance(CasterConfiguration casterConfiguration) {
+        return new Caster(casterConfiguration);
     }
 
     /* String */
@@ -51,55 +55,5 @@ public final class Caster {
     public ToDouble toDouble(){return new ToDouble(this.casterConfiguration);}
     public ToFloat toFloat(){return new ToFloat(this.casterConfiguration);}
 
-    public final static class CasterBuilder {
-        private RoundingModeEnum roundingModeEnum = RoundingModeEnum.ROUND_DOWN;
-        private ExceptionModeEnum exceptionModeEnum = ExceptionModeEnum.DONT_THROW;
-        private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG);
-        private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");;
-        private DecimalFormat decimalFormat = new DecimalFormat("#,###,##0.000");;
 
-        public Caster build() {
-            return new Caster(new CasterConfiguration(this));
-        }
-
-        public RoundingModeEnum getRoundingModeEnum() {
-            return roundingModeEnum;
-        }
-        public CasterBuilder setRoundingModeEnum(RoundingModeEnum roundingModeEnum) {
-            this.roundingModeEnum = roundingModeEnum;
-            return this;
-        }
-
-        public ExceptionModeEnum getExceptionModeEnum() {
-            return exceptionModeEnum;
-        }
-        public CasterBuilder setExceptionModeEnum(ExceptionModeEnum exceptionModeEnum) {
-            this.exceptionModeEnum = exceptionModeEnum;
-            return this;
-        }
-
-        public DateTimeFormatter getDateTimeFormatter() {
-            return dateTimeFormatter;
-        }
-        public CasterBuilder setDateTimeFormatter(DateTimeFormatter dateTimeFormatter) {
-            this.dateTimeFormatter = dateTimeFormatter;
-            return this;
-        }
-
-        public SimpleDateFormat getSimpleDateFormat() {
-            return simpleDateFormat;
-        }
-        public CasterBuilder setSimpleDateFormat(SimpleDateFormat simpleDateFormat) {
-            this.simpleDateFormat = simpleDateFormat;
-            return this;
-        }
-
-        public DecimalFormat getDecimalFormat() {
-            return decimalFormat;
-        }
-        public CasterBuilder setDecimalFormat(DecimalFormat decimalFormat) {
-            this.decimalFormat = decimalFormat;
-            return this;
-        }
-    }
 }

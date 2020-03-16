@@ -71,7 +71,11 @@ public final class ToString implements AbstractTo {
 
     @Override
     public boolean canCast(Class<?> clazz) {
-        return this.castables.contains(clazz);
+        if (clazz == null) {
+            return false;
+        } else {
+            return this.castables.contains(clazz);
+        }
     }
 
     public Optional<String> cast(char character) {
@@ -83,19 +87,35 @@ public final class ToString implements AbstractTo {
     }
 
     public Optional<String> cast(byte[] bytes) {
-        return Optional.of(new String(bytes));
+        if (bytes == null || bytes.length == 0) {
+            return Optional.empty();
+        } else {
+            return Optional.of(new String(bytes));
+        }
     }
 
     public Optional<String> cast(Date date) {
-        return Optional.of(this.simpleDateFormat.format(date));
+        if (date == null) {
+            return Optional.empty();
+        } else {
+            return Optional.of(this.simpleDateFormat.format(date));
+        }
     }
 
     public Optional<String> cast(Temporal temporal) {
-        return Optional.of(this.dateTimeFormatter.format(temporal));
+        if (temporal == null) {
+            return Optional.empty();
+        } else {
+            return Optional.of(this.dateTimeFormatter.format(temporal));
+        }
     }
 
     public Optional<String> cast(Number number) {
-        return Optional.of(this.decimalFormat.format(number));
+        if (number == null) {
+            return Optional.empty();
+        } else {
+            return Optional.of(this.decimalFormat.format(number));
+        }
     }
 
 }

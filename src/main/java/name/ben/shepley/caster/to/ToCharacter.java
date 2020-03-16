@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 
 public class ToCharacter implements AbstractTo {
     private List<Class<?>> castables = new LinkedList<>();
@@ -26,6 +27,7 @@ public class ToCharacter implements AbstractTo {
         this.simpleDateFormat = casterConfiguration.getSimpleDateFormat();
         this.decimalFormat = casterConfiguration.getDecimalFormat();
 
+        this.castables.add(String.class);
     }
 
     @Override
@@ -71,5 +73,35 @@ public class ToCharacter implements AbstractTo {
      *   Temporal (LocalDate, LocalTime LocalDateTime),
      *   Number: (BigInteger, BigDecimal, Long, Integer, Short, Byte, Double, Float),
      */
-    
+
+    public Optional<Character> cast(String string) {
+        if (string == null || string.length() == 0) {
+            return Optional.empty();
+        } else {
+            switch (roundingModeEnum) {
+                case ROUND_UP:
+                    return Optional.of(string.charAt(string.length() - 1));
+                case ROUND_DOWN:
+                    return Optional.of(string.charAt(0));
+                case ONLY_EQUAL:
+                    if (string.length() == 1) {
+                        return Optional.of(string.charAt(0));
+                    } else {
+                        return Optional.empty();
+                    }
+                default:
+                    return Optional.empty();
+            }
+        }
+    }
+
+    public Optional<Character> cast(boolean bool) {
+        return Optional.of((bool)? 'T' : 'F');
+    }
+
+    public Optional<Number> cast(Number number) {
+        return Optional.empty();
+    }
+
+
 }
