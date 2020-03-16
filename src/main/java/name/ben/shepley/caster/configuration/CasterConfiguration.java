@@ -1,7 +1,5 @@
 package name.ben.shepley.caster.configuration;
 
-import name.ben.shepley.caster.Caster;
-
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
@@ -46,8 +44,8 @@ public final class CasterConfiguration {
         private RoundingModeEnum roundingModeEnum = RoundingModeEnum.ROUND_DOWN;
         private ExceptionModeEnum exceptionModeEnum = ExceptionModeEnum.DONT_THROW;
         private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG);
-        private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");;
-        private DecimalFormat decimalFormat = new DecimalFormat("#,###,##0.000");;
+        private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        private DecimalFormat decimalFormat = new DecimalFormat("#,###,##0.000");
 
         public CasterConfiguration build() {
             return new CasterConfiguration(roundingModeEnum, exceptionModeEnum, dateTimeFormatter, simpleDateFormat, decimalFormat);

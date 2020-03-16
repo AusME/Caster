@@ -1,14 +1,7 @@
 package name.ben.shepley.caster;
 
 import name.ben.shepley.caster.configuration.CasterConfiguration;
-import name.ben.shepley.caster.configuration.ExceptionModeEnum;
-import name.ben.shepley.caster.configuration.RoundingModeEnum;
 import name.ben.shepley.caster.to.*;
-
-import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
 
 public final class Caster {
     private final CasterConfiguration casterConfiguration;
@@ -37,7 +30,7 @@ public final class Caster {
     /* byte[] */
     public ToByteArray toByteArray() {return new ToByteArray(this.casterConfiguration);}
 
-    /* java.util.date */
+    /* java.util.Date */
     public ToDate toDate() {return new ToDate(this.casterConfiguration);}
 
     /* Temporal */

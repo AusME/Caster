@@ -1,13 +1,14 @@
 package name.ben.shepley.caster.to;
 
 import name.ben.shepley.caster.Caster;
+import name.ben.shepley.caster.configuration.RoundingModeEnum;
 import org.junit.jupiter.api.Test;
 
 public class ToStringTest {
-    private Caster caster = new Caster.CasterBuilder().build();
+    private Caster caster = Caster.getInstance();
 
     @Test
     public void testCharacter() {
-        System.out.println(this.caster.toStr().setRoundingModeEnum(Caster.CasterConfiguration.RoundingModeEnum.ROUND_UP).cast('C'));
+        System.out.println(this.caster.toStr().setRoundingModeEnum(RoundingModeEnum.ROUND_UP).cast('C'));
     }
 }
