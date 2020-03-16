@@ -99,7 +99,23 @@ public class ToCharacter implements AbstractTo {
         return Optional.of((bool)? 'T' : 'F');
     }
 
-    public Optional<Number> cast(Number number) {
+    public Optional<Character> cast(Number number) {
+
+        if (number instanceof Long) {
+            if (number.longValue() >= Character.MAX_VALUE) {
+                if (this.roundingModeEnum.equals(RoundingModeEnum.ONLY_EQUAL)) {
+                    if (this.exceptionModeEnum.equals(ExceptionModeEnum.DONT_THROW)) {
+                        return Optional.empty();
+                    } else {
+                        throw new ArithmeticException("Attempted to cast a long into a character where the long is too large. Doing so would result in loss of information.");
+                    }
+                } else {
+                    return Optional.of(Character.MAX_VALUE);
+                }
+            } else {
+                return Optional.of((char) number.longValue());
+            }
+        }
         return Optional.empty();
     }
 
