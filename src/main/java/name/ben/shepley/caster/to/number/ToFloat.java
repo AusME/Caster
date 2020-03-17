@@ -1,10 +1,10 @@
-package name.ben.shepley.caster.to;
+package name.ben.shepley.caster.to.number;
 
 import name.ben.shepley.caster.configuration.CasterConfiguration;
 
-public class ToDouble {
+public class ToFloat {
     private final CasterConfiguration casterConfiguration;
-    public ToDouble(CasterConfiguration casterConfiguration) {
+    public ToFloat(CasterConfiguration casterConfiguration) {
         this.casterConfiguration = casterConfiguration;
     }
 }

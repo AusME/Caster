@@ -1,4 +1,4 @@
-package name.ben.shepley.caster.to;
+package name.ben.shepley.caster;
 
 import name.ben.shepley.caster.configuration.CasterConfiguration;
 import name.ben.shepley.caster.configuration.ExceptionModeEnum;

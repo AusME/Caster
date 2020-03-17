@@ -1,10 +1,10 @@
-package name.ben.shepley.caster.to;
+package name.ben.shepley.caster.to.number;
 
 import name.ben.shepley.caster.configuration.CasterConfiguration;
 
-public class ToBigDecimal {
+public class ToBigInteger {
     private final CasterConfiguration casterConfiguration;
-    public ToBigDecimal(CasterConfiguration casterConfiguration) {
+    public ToBigInteger(CasterConfiguration casterConfiguration) {
         this.casterConfiguration = casterConfiguration;
     }
 }

@@ -1,5 +1,6 @@
 package name.ben.shepley.caster.to;
 
+import name.ben.shepley.caster.AbstractTo;
 import name.ben.shepley.caster.configuration.CasterConfiguration;
 
 import java.time.temporal.Temporal;

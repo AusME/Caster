@@ -2,6 +2,8 @@ package name.ben.shepley.caster;
 
 import name.ben.shepley.caster.configuration.CasterConfiguration;
 import name.ben.shepley.caster.to.*;
+import name.ben.shepley.caster.to.number.*;
+import name.ben.shepley.caster.to.temporal.*;
 
 public final class Caster {
     private final CasterConfiguration casterConfiguration;
@@ -27,13 +29,12 @@ public final class Caster {
     /* Boolean */
     public ToBoolean toBoolean() {return new ToBoolean(this.casterConfiguration);}
 
-    /* byte[] */
-    public ToByteArray toByteArray() {return new ToByteArray(this.casterConfiguration);}
-
     /* java.util.Date */
     public ToDate toDate() {return new ToDate(this.casterConfiguration);}
 
     /* Temporal */
+    public ToYear toYear() {return new ToYear(this.casterConfiguration);}
+    public ToYearMonth toYearMonth() {return new ToYearMonth(this.casterConfiguration);}
     public ToLocalDate toLocalDate() {return new ToLocalDate(this.casterConfiguration);}
     public ToLocalTime toLocalTime() {return new ToLocalTime(this.casterConfiguration);}
     public ToLocalDateTime toLocalDateTime() { return new ToLocalDateTime(this.casterConfiguration);}
@@ -47,6 +48,33 @@ public final class Caster {
     public ToByte toByte() {return new ToByte(this.casterConfiguration);}
     public ToDouble toDouble(){return new ToDouble(this.casterConfiguration);}
     public ToFloat toFloat(){return new ToFloat(this.casterConfiguration);}
+
+/*
+    Check Castables
+    Check names of variables in cast methods
+    Check casts
+    How are exceptions going to be managed with time / date's?
+
+    String
+    Character
+    Boolean
+    Date
+    Temporal
+        Year****
+        YearMonth****
+        LocalDate
+        LocalTime
+        LocalDateTime
+    Number
+        BigInteger
+        BigDecimal
+        Long
+        Integer
+        Short
+        Byte
+        Float
+        Double
+ */
 
 
 }

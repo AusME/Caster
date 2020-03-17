@@ -1,10 +1,10 @@
-package name.ben.shepley.caster.to;
+package name.ben.shepley.caster.to.number;
 
 import name.ben.shepley.caster.configuration.CasterConfiguration;
 
-public class ToLocalDate {
+public class ToDouble {
     private final CasterConfiguration casterConfiguration;
-    public ToLocalDate(CasterConfiguration casterConfiguration) {
+    public ToDouble(CasterConfiguration casterConfiguration) {
         this.casterConfiguration = casterConfiguration;
     }
 }

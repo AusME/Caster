@@ -1,5 +1,6 @@
 package name.ben.shepley.caster.to;
 
+import name.ben.shepley.caster.AbstractTo;
 import name.ben.shepley.caster.configuration.CasterConfiguration;
 import name.ben.shepley.caster.configuration.ExceptionModeEnum;
 import name.ben.shepley.caster.configuration.RoundingModeEnum;

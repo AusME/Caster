@@ -1,10 +1,10 @@
-package name.ben.shepley.caster.to;
+package name.ben.shepley.caster.to.number;
 
 import name.ben.shepley.caster.configuration.CasterConfiguration;
 
-public class ToLocalDateTime {
+public class ToInteger {
     private final CasterConfiguration casterConfiguration;
-    public ToLocalDateTime(CasterConfiguration casterConfiguration) {
+    public ToInteger(CasterConfiguration casterConfiguration) {
         this.casterConfiguration = casterConfiguration;
     }
 }
