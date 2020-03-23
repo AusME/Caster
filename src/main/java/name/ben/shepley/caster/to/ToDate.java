@@ -23,7 +23,7 @@ public class ToDate extends AbstractTo<ToDate> {
     }
 
     @Override
-    protected ToDate rtnClass() {
+    protected ToDate parent() {
         return this;
     }
 

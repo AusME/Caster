@@ -17,9 +17,6 @@ Caster caster = Caster.newInstance();
 /* Casts "6" and stores result into i */
 int i = caster.toInteger().cast("6").get();
 
-/* b is false, since optional is empty */
-boolean b = caster.toInteger().cast("A").isPresent();
-
 /* setExceptionModeEnum overrides default configuration, thus, cast() throws Exception */
 int i = caster.toInteger().setExceptionModeEnum(ExceptionModeEnum.THROW).cast("A").get();
 

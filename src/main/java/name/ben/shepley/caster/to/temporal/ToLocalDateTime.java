@@ -13,13 +13,13 @@ public class ToLocalDateTime extends AbstractTo<ToLocalDateTime> {
 
         super.castables.add(String.class);
         super.castables.add(Date.class);
+        super.castables.add(Year.class);
         super.castables.add(YearMonth.class);
         super.castables.add(LocalDate.class);
-        super.castables.add(LocalDateTime.class);
     }
 
     @Override
-    protected ToLocalDateTime rtnClass() {
+    protected ToLocalDateTime parent() {
         return this;
     }
 

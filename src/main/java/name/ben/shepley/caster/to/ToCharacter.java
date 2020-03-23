@@ -18,7 +18,7 @@ public class ToCharacter extends AbstractTo<ToCharacter> {
     }
 
     @Override
-    protected ToCharacter rtnClass() {
+    protected ToCharacter parent() {
         return this;
     }
 

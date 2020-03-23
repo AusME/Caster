@@ -22,7 +22,7 @@ public final class ToString extends AbstractTo<ToString> {
     }
 
     @Override
-    protected ToString rtnClass() {
+    protected ToString parent() {
         return this;
     }
 

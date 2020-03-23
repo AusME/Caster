@@ -26,31 +26,31 @@ public abstract class AbstractTo<T> {
         this.decimalFormat = casterConfiguration.getDecimalFormat();
     }
 
-    protected abstract T rtnClass();
+    protected abstract T parent();
 
     public T setRoundingModeEnum(RoundingModeEnum roundingModeEnum) {
         this.roundingModeEnum = roundingModeEnum;
-        return this.rtnClass();
+        return this.parent();
     }
 
     public T setExceptionModeEnum(ExceptionModeEnum exceptionModeEnum) {
         this.exceptionModeEnum = exceptionModeEnum;
-        return this.rtnClass();
+        return this.parent();
     }
 
     public T setDateTimeFormatter(DateTimeFormatter dateTimeFormatter) {
         this.dateTimeFormatter = dateTimeFormatter;
-        return this.rtnClass();
+        return this.parent();
     }
 
     public T setSimpleDateFormat(SimpleDateFormat simpleDateFormat) {
         this.simpleDateFormat = simpleDateFormat;
-        return this.rtnClass();
+        return this.parent();
     }
 
     public T setDecimalFormat(DecimalFormat decimalFormat) {
         this.decimalFormat = decimalFormat;
-        return this.rtnClass();
+        return this.parent();
     }
 
     public boolean canCast(Class<?> clazz) {

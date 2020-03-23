@@ -13,13 +13,13 @@ public class ToBoolean extends AbstractTo<ToBoolean> {
         super(casterConfiguration);
 
         super.castables.add(String.class);
-        super.castables.add(Boolean.class);
-        super.castables.add(boolean.class);
+        super.castables.add(char.class);
+        super.castables.add(Character.class);
         super.castables.add(Number.class);
     }
 
     @Override
-    protected ToBoolean rtnClass() {
+    protected ToBoolean parent() {
         return this;
     }
 

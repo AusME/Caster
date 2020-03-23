@@ -22,7 +22,7 @@ public class ToYear extends AbstractTo<ToYear> {
     }
 
     @Override
-    protected ToYear rtnClass() {
+    protected ToYear parent() {
         return this;
     }
 

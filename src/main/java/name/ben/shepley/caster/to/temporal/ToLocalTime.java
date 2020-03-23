@@ -14,10 +14,14 @@ public class ToLocalTime extends AbstractTo<ToLocalTime> {
     public ToLocalTime(CasterConfiguration casterConfiguration) {
         super(casterConfiguration);
 
+        super.castables.add(String.class);
+        super.castables.add(Date.class);
+        super.castables.add(long.class);
+        super.castables.add(Long.class);
     }
 
     @Override
-    protected ToLocalTime rtnClass() {
+    protected ToLocalTime parent() {
         return this;
     }
 
