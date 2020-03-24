@@ -9,6 +9,6 @@ public class ToStringTest {
 
     @Test
     public void testCharacter() {
-        System.out.println(this.caster.toStr().setRoundingModeEnum(RoundingModeEnum.ROUND_UP).cast('C'));
+        System.out.println(this.caster.toStr().setRoundingModeEnum(RoundingModeEnum.ROUND_UP).cast('6'));
     }
 }
